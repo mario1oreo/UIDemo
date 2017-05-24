@@ -14,33 +14,36 @@ console.log(9);
         var menuLi = '<li id = "'+ID+'"><a href="javascript:void(0);" attr-href="'+pagePath+'"><i class="fa fa-th-large"></i> <span class="nav-label">'+Name+'</span> </a></li>'
         var menuUl = '';
         if (level == '1'){
+            menuLi = '<li id = "'+ID+'" class="topLevel"><a href="javascript:void(0);" attr-href="'+pagePath+'"><i class="fa fa-th-large"></i> <span class="nav-label">'+Name+'</span> </a></li>'
             $("#"+urid).append(menuLi);
         }else if (level == '2'){
+            menuLi = '<li id = "'+ID+'" class="secLevel"><a href="javascript:void(0);" attr-href="'+pagePath+'"><i class="fa fa-th-large"></i> <span class="nav-label">'+Name+'</span> </a></li>'
             if (indexNum == '1'){
-                menuUl = '<ul class="nav nav-second-level collapse" id = "ul'+ID+'">';
+                menuUl = '<ul class="nav nav-second-level collapse" id = "ul'+parentId+'">';
                 menuLi = menuUl +menuLi+'</ul>';
             } else{
                 parentId = 'ul'+parentId;
             }
         }else if(level == '3'){
+            menuLi = '<li id = "'+ID+'" class="thirdLevel"><a href="javascript:void(0);" attr-href="'+pagePath+'"><i class="fa fa-th-large"></i> <span class="nav-label">'+Name+'</span> </a></li>'
             if (indexNum == '1'){
-                menuUl = '<ul class="nav nav-third-level collapse" id = "ul'+ID+'">';
+                menuUl = '<ul class="nav nav-third-level collapse" id = "ul'+parentId+'">';
                 menuLi = menuUl +menuLi+'</ul>';
             } else{
                 parentId = 'ul'+parentId;
             }
-        }else if(level == '4'){
+        }/*else if(level == '4'){
             if (indexNum == '1'){
-                menuUl = '<ul class="nav nav-third-level collapse" id = "ul'+ID+'">';
+                menuUl = '<ul class="nav nav-third-level collapse" id = "ul'+parentId+'">';
                 menuLi = menuUl +menuLi+'</ul>';
             } else{
                 parentId = 'ul'+parentId;
             }
-        }
+        }*/
         $("#"+parentId).append(menuLi);
         result += menuLi + "\n";
     });
-    console.log(result);
+   // console.log(result);
 }
 
 /**

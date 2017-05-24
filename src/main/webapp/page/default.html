@@ -8,42 +8,34 @@
 
     <title>INSPINIA | Main view</title>
 
-    <style>
-
-        * {
-            margin:0;
-            padding:0;
-        }
-
-        body {
-            font-size:16px;
-            font:400 16px/1.62 Georgia,"Xin Gothic","Hiragino Sans GB","Droid Sans Fallback","Microsoft YaHei",sans-serif;font-family: 'PT serif',微軟正黑體,微软雅黑,华文细黑,Microsoft Yahei,Hiragino Sans GB,sans-serif;
-            color:#D0CCCC;
-            overflow:hidden;
-            text-shadow: 0px 0px 1px rgba(24, 22, 22, 0.35);
-            background-color: #000;
-        }
-
-
-
-
-
-
-
-
-    </style>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!--blueimp-->
+    <link href="../css/plugins/blueimp/css/blueimp-gallery.min.css" rel="stylesheet">
 
+    <!--awesome-->
+    <link href="../css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <!--iCheck-->
+    <link href="../css/plugins/iCheck/custom.css" rel="stylesheet">
+    <!--chartist-->
+    <link href="../css/plugins/chartist/chartist.min.css" rel="stylesheet">
+    <!--c3-->
+    <link href="../css/plugins/c3/c3.min.css" rel="stylesheet">
+    <!--steps-->
+    <link href="../css/plugins/steps/jquery.steps.css" rel="stylesheet">
     <!-- orris -->
     <link href="../css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+
+    <!--dropzone-->
+    <link href="../css/plugins/dropzone/basic.css" rel="stylesheet">
+    <link href="../css/plugins/dropzone/dropzone.css" rel="stylesheet">
 
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
 
 </head>
 
-<body onload="onloadIndexPage()">
+<body onload="onloadIndexPage()" class="pace-done">
 
 <div id="wrapper">
 
@@ -88,14 +80,7 @@
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i>
-                    </a>
-                    <form role="search" class="navbar-form-custom" method="post" action="#">
-                        <div class="form-group">
-                            <input type="text" placeholder="Search for something..." class="form-control"
-                                   name="top-search" id="top-search">
-                        </div>
-                    </form>
+                    <img src="../img/angular_logo.png">
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
@@ -123,6 +108,8 @@
                 </div>
             </div>
             <div class="loadPage"></div>
+
+
         </div>
 
 
@@ -138,12 +125,19 @@
     </div>
 </div>
 
+<!--adsbygoogle-->
+<!--<script async src="../js/demo/googlegg.js"></script>-->
+
 <!--showMenu-->
 <script src="../js/plugins/menu/showmenu.js"></script>
 
 <!-- Mainly scripts -->
 <script src="../js/jquery-2.1.1.js"></script>
+<script src="../js/jquery-ui-1.10.4.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/inspinia.js"></script>
+
+<!--menu plugins-->
 <script src="../js/plugins/menu/accordion.js"></script>
 <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
@@ -153,15 +147,52 @@
 <script src="../js/plugins/morris/morris.js"></script>
 
 <!-- Custom and plugin javascript -->
-<script src="../js/inspinia.js"></script>
 <script src="../js/plugins/pace/pace.min.js"></script>
 
-<!--googlegg-->
-<script src="../js/demo/googlegg.js"></script>
+<!--iCheck-->
+<script src="../js/plugins/iCheck/icheck.min.js"></script>
+
+<!-- Sparkline -->
+<script src="../js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+<!--flot-->
+<script src="../js/plugins/flot/jquery.flot.js"></script>
+<script src="../js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+<script src="../js/plugins/flot/jquery.flot.resize.js"></script>
+<script src="../js/plugins/flot/jquery.flot.pie.js"></script>
+<script src="../js/plugins/flot/jquery.flot.time.js"></script>
+<!--blueimp-->
+<script src="../js/plugins/blueimp/jquery.blueimp-gallery.min.js"></script>
+
+<!--rickshaw-->
+<script src="../js/plugins/rickshaw/vendor/d3.v3.js"></script>
+<script src="../js/plugins/rickshaw/rickshaw.min.js"></script>
+
+<!--c3-->
+<script src="../js/plugins/d3/d3.min.js"></script>
+<script src="../js/plugins/c3/c3.min.js"></script>
+
+<!--chartist-->
+<script src="../js/plugins/chartist/chartist.min.js"></script>
+
+<!--chartJs-->
+<script src="../js/plugins/chartJs/Chart.min.js"></script>
+
+<!-- Steps -->
+<script src="../js/plugins/staps/jquery.steps.min.js"></script>
+<!--validate-->
+<script src="../js/plugins/validate/jquery.validate.min.js"></script>
+<!--dropzone-->
+
 <script>
 	function keepActive(){
         $("#side-menu").accordion({
             speed: 200
+        });
+        $("#side-menu li").bind("click",function(){
+            var attr=$(this).find("a").attr("attr-href");
+            $(".loadPage").load("../page/"+attr+".html");
+            return false;
         });
 	}
 
@@ -184,7 +215,6 @@
 				}
         });
 	}
-
 </script>
 </body>
 </html>
